@@ -1,0 +1,2 @@
+touch users.txt    
+chmod 600 users.txt 
