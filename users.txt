@@ -1,2 +1,3 @@
 touch users.txt    
 chmod 600 users.txt 
+ls -l users.txt
