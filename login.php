@@ -6,7 +6,7 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 
 // 从文件读取用户数据
-$users = file('users.txt');
+$users = file('users.dat');
 $login_success = false;
 
 foreach ($users as $user) {
