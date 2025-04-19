@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本地门户页面</title>
+  <style type="text/css">
+	body{
+		background: url("bg0.jpg") no-repeat center center fixed;
+                /*兼容浏览器版本*/
+                -webkit-background-size: cover;
+                -o-background-size: cover;                
+                background-size: cover;
+	}
+  Body { color:white;}
+  p{color:white;}
+  <style>
+        body {
+    font-family: 'MS Sans Serif', Tahoma, Geneva, sans-serif; /* Windows 3.1 常用的字体 */
+    background-color: #004e98; /* 模仿Windows 3.1的背景色 */
+    display: flex;
+    justify-content: space-around;
+    /*align-items: center;*/
+    height: 100vh;
+    margin: 0;
+}
+ 
+.win31-button {
+    background-color: #c0c0c0; /* 按钮背景色 */
+    color: #000000; /* 字体颜色 */
+    border: 2px outset #ffffff; /* 边框样式，模仿3D效果 */
+    padding: 5px 15px; /* 内边距 */
+    font-size: 14px; /* 字体大小 */
+    cursor: pointer; /* 鼠标悬停时显示手指图标 */
+    outline: none; /* 去除按钮焦点时的轮廓 */
+}
+ 
+.win31-button:hover {
+    border-style: inset; /* 鼠标悬停时改变边框样式 */
+    background-color: #e0e0e0; /* 鼠标悬停时的背景色 */
+}
+ 
+.win31-button:active {
+    border-style: inset; /* 点击时的边框样式 */
+    background-color: #a0a0a0; /* 点击时的背景色 */
+}
+	</style>
+</head>
+<body>
+    <article>
+      <h2>欢迎访问门户本地界面</h2>
+      <p>目前一部分服务可以在本地门户直接使用</p>
+      <p>当前你可以在下方访问这些功能</p>
+      <hr>
+      <p>项目理想已一周年！谨以此「经过」纪念此刻</p>
+    <video width="640" height="360" controls>
+        <source src="movie.mp4" type="video/mp4">
+        您的浏览器不支持播放该内容，请前往下载MicrosoftEdge<a href="https://www.microsoft.com/zh-cn/edge/download">访问下载页面</a>
+      
+      
+      
+    </article>
+    <p>        </p>
+    <p><a href="sumerumain.html" class="win31-button">点击此按钮前往本地学习中心--「智慧宫」</a></p>
+    <p>       </p>
+    <p><a href="main.html" class="win31-button">点击此按钮前往本地网址导航</a></p>
+</body>
+<script>
+function changeBackground() {
+  var images = ['bg0.jpg','bg1.jpg', 'bg2.jpeg', 'bg3.jpeg','bg4.jpeg']; // 背景图片列表
+  var randomIndex = Math.floor(Math.random() * images.length); // 随机选择一个索引
+  document.body.style.backgroundImage = 'url(' + images[randomIndex] + ')'; // 设置背景图
+}
+setInterval(changeBackground, 15000); // 每5秒更换一次背景图
+</script>
+</html>

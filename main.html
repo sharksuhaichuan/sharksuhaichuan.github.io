@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="video.css">
+	<style>
+		body {
+    font-family: 'MS Sans Serif', Tahoma, Geneva, sans-serif; /* Windows 3.1 常用的字体 */
+    background-color: #004e98; /* 模仿Windows 3.1的背景色 */
+    display: flex;
+    justify-content: space-around;
+    /*align-items: center;*/
+    height: 100vh;
+    margin: 0;
+}
+ 
+.win31-button {
+    background-color: #c0c0c0; /* 按钮背景色 */
+    color: #000000; /* 字体颜色 */
+    border: 2px outset #ffffff; /* 边框样式，模仿3D效果 */
+    padding: 5px 15px; /* 内边距 */
+    font-size: 14px; /* 字体大小 */
+    cursor: pointer; /* 鼠标悬停时显示手指图标 */
+    outline: none; /* 去除按钮焦点时的轮廓 */
+}
+ 
+.win31-button:hover {
+    border-style: inset; /* 鼠标悬停时改变边框样式 */
+    background-color: #e0e0e0; /* 鼠标悬停时的背景色 */
+}
+ 
+.win31-button:active {
+    border-style: inset; /* 点击时的边框样式 */
+    background-color: #a0a0a0; /* 点击时的背景色 */
+}
+	</style>
+    <div id="video-container"></div>
+	<meta charset="UTF-8">
+	<title>网址导航</title>
+</head>
+<body>
+    <video autoplay muted loop id="bgVideo">
+    <source id="videoSource" src="default.mp4" type="video/mp4">
+</video>
+<div class="content">
+    <article>
+        <h1>常用视频网站（若想获得更好的视频视图，请缩小页面）</h1>
+        <p><a href="https://www.iqiyi.com"class="win31-button">访问爱奇艺>></a>
+        <a href="https://v.qq.com"class="win31-button">访问腾讯视频>></a>
+        <p><a href="https://www.youku.com"class="win31-button">访问优酷>></a>
+        <a href="https://www.yangshipin.cn"class="win31-button">访问央视频>></a>
+        <p><a href="https://www.mgtv.com"class="win31-button">访问芒果TV>></a>
+        <a href="https://www.bilibili.com"class="win31-button">访问哔哩哔哩>></a>
+    </article>
+</div>
+	
+<script type="text/javascript">
+   
+    // 定义时间段与视频路径映射
+const timeMap = [
+    { start: 0, end: 6, src: 'morning.mp4' },  // 早晨
+    { start: 6, end: 18, src: 'day.mp4' },     // 白天
+    { start: 18, end: 24, src: 'night.mp4' },   // 夜晚
+    
+];
+
+function updateBackground() {
+    const currentHour = new Date().getHours();
+    const targetVideo = timeMap.find(t => currentHour >= t.start && currentHour < t.end);
+    
+    const videoElement = document.getElementById('bgVideo');
+    const sourceElement = document.getElementById('videoSource');
+    
+    if (sourceElement.src !== targetVideo.src) {
+        videoElement.pause();
+        sourceElement.src = targetVideo.src;
+        videoElement.load();
+        videoElement.play().catch(e => console.error('播放失败:', e));
+    
+    }
+}
+
+
+
+// 初始加载+每分钟检测
+updateBackground();
+setInterval(updateBackground, 60000); 
+
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<button class="custom-btn">自定义样式按钮</button>
+ 
+<style>
+.custom-btn {
+  background-color: #0000FF; /* 绿色 */
+  color: white; /* 白色文字 */
+  padding: 15px 32px; /* 内边距 */
+  text-align: center; /* 文本居中 */
+  text-decoration: none; /* 无下划线 */
+  display: inline-block; /* 内联块级元素 */
+  font-size: 16px; /* 字体大小 */
+  margin: 4px 2px; /* 外边距 */
+  cursor: pointer; /* 鼠标悬停时显示手指图标 */
+  border: none; /* 无边框 */
+  border-radius: 8px; /* 边框圆角 */
+}
+</style>
