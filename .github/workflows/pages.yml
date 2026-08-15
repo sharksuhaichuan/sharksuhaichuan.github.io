@@ -3,7 +3,7 @@ name: Pages
 on:
   push:
     branches:
-      - main  # 如果你的默认分支是 master，请将这里改为 master
+      - main  # 如果你默认分支是 master 记得改
 
 jobs:
   build:
@@ -12,27 +12,25 @@ jobs:
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          # 如果你的仓库依赖子模块，请取消下面的注释
-          submodules: recursive
 
-      - name: Use Node.js 24
+      - name: Use Node.js 20
         uses: actions/setup-node@v4
         with:
-          # 请将 "20" 替换为你本地使用的 Node.js 主版本号，例如 "18" 或 "22"
-          node-version: "24"
+          node-version: "20"  # 改为你本地的版本号
 
       - name: Cache NPM dependencies
         uses: actions/cache@v4
         with:
           path: node_modules
-          key: ${{ runner.OS }}-npm-cache
+          key: ${{ runner.OS }}-npm-cache-v2  # 加了 -v2 强制刷新
           restore-keys: |
-            ${{ runner.OS }}-npm-cache
+            ${{ runner.OS }}-npm-cache-v2
 
       - name: Install Dependencies
-        run: npm install -g hexo-cli
-             npm install
-             
+        run: |
+          npm install -g hexo-cli
+          rm -rf node_modules   # 删除可能损坏的缓存
+          npm install --force   # --force 解决可能的依赖冲突
 
       - name: Build
         run: npm run build
