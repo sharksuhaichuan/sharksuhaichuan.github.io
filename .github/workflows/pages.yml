@@ -13,7 +13,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           # 如果你的仓库依赖子模块，请取消下面的注释
-          # submodules: recursive
+          submodules: recursive
 
       - name: Use Node.js 24
         uses: actions/setup-node@v4
